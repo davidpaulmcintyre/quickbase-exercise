@@ -1,9 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import { goTo } from '../actions/actions';
 import moment from 'moment';
 
 class Appointment extends React.Component {
-  
+
   constructor(props, context) {
     super(props, context);
   }
@@ -27,15 +28,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     name,
     dateFormatted
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // goTo: (id) => {
-    //   dispatch(goTo(id))
-    // }
+    goTo: (id) => {
+      dispatch(goTo(id))
+    }
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Appointment)
