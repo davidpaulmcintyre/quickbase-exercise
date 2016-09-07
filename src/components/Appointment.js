@@ -22,8 +22,9 @@ class Appointment extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const name = ownProps.query.name;
-  const date = ownProps.query.date;
+  const first = ownProps.location.query.first;
+  const last = ownProps.location.query.last;
+  const date = ownProps.location.query.date;
   const dateFormatted = moment(date);
   return {
     name,
