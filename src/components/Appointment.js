@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { goTo } from '../actions/actions';
 import moment from 'moment';
+import '../styles/appointment.css';
 
 class Appointment extends React.Component {
 
@@ -13,12 +14,21 @@ class Appointment extends React.Component {
   render() {
     return (
       <div>
-        <h2>CommuteCall</h2>
-        <div>Would you like to schedule a CommuteCall with {this.props.first} {this.props.last} at the following time?</div>
-        {this.props.dateFormatted}
-        <div>Click the button below to confirm.</div>
-        <Link to={`/confirmation?first=${this.props.first}&last=${this.props.last}&date=${this.props.location.query.date}`}>
-        Confirm</Link>
+        <div className='headerContainer'>
+          <div className='header'>CommuteCall</div>
+        </div>
+        <div className='summaryContainer'>
+          <div className='summary'>Would you like to schedule a CommuteCall with
+            <span className='name'>{this.props.first} {this.props.last}</span>
+             at the following time?
+             </div>
+        </div>
+        <div className='time'>{this.props.date}</div>
+        <div className='confirm'>
+          <div>Click the button below to confirm.</div>
+          <Link to={`/confirmation?first=${this.props.first}&last=${this.props.last}&date=${this.props.location.query.date}`}>
+          Confirm</Link>
+        </div>
       </div>
     );
   }
@@ -34,11 +44,10 @@ const mapStateToProps = (state, ownProps) => {
   const first = ownProps.location.query.first;
   const last = ownProps.location.query.last;
   const date = ownProps.location.query.date;
-  const dateFormatted = moment(date).format('LLLL');
   return {
     first,
     last,
-    dateFormatted
+    date
   };
 };
 
