@@ -67,7 +67,7 @@ const mapStateToProps = (state, ownProps) => {
   const first = ownProps.location.query.first;
   const last = ownProps.location.query.last;
   const date = ownProps.location.query.date;
-  const token = ownProps.location.query.token;
+  const token = ownProps.location.query.id;
   return {
     first,
     last,
