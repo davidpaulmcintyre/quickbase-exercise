@@ -4,12 +4,35 @@ import { Link } from 'react-router';
 import { goTo } from '../actions/actions';
 import moment from 'moment';
 import '../styles/appointment.css';
+var apns = require("apns"), options, connection, notification;
 
 class Appointment extends React.Component {
 
   constructor(props, context) {
     super(props, context);
   }
+
+  sendNotification() {
+    const options = {
+      keyFile : '../../aps_dev_key_decrypted.pem',
+      certFile : '../../config/aps_dev_cert.pem',
+      debug : true
+    };
+    
+    connection = new apns.Connection(options);
+    
+    notification = new apns.Notification();
+    notification.device = new apns.Device(this.props.token);
+    notification.alert = `Your CommuteCall is confirmed for ${this.props.date}`;
+    
+    connection.sendNotification(notification);
+  }
+
+  confirm() {
+    this.sendNotification();
+
+  }
+
 
   render() {
     return (
@@ -44,10 +67,12 @@ const mapStateToProps = (state, ownProps) => {
   const first = ownProps.location.query.first;
   const last = ownProps.location.query.last;
   const date = ownProps.location.query.date;
+  const token = ownProps.location.query.token;
   return {
     first,
     last,
-    date
+    date,
+    token
   };
 };
 
