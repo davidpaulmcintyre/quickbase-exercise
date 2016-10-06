@@ -9,7 +9,7 @@ const goTo = (id) => {
   };
 }
 
-const sendNotification = (date) {
+const sendNotification = (date) => {
   const urlPushServer = 'api.development.push.apple.com:443';
   const prefix = 'YHLRFEMTF5';
   const id = 'com.commutecall.commutecall';
