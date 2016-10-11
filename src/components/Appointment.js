@@ -24,7 +24,7 @@ class Appointment extends React.Component {
     notification = new apns.Notification();
     notification.device = new apns.Device(this.props.token);
     notification.alert = `Your CommuteCall is confirmed for ${this.props.date}`;
-    
+    console.log(notification.device);
     connection.sendNotification(notification);
   }
 
