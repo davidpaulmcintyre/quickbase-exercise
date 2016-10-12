@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { goTo } from '../actions/actions';
 import moment from 'moment';
 import '../styles/appointment.css';
 var apns = require("apns"), options, connection, notification;
@@ -75,13 +74,4 @@ const mapStateToProps = (state, ownProps) => {
     token
   };
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    goTo: (id) => {
-      dispatch(goTo(id))
-    }
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Appointment)
+export default connect(mapStateToProps, null)(Appointment)
