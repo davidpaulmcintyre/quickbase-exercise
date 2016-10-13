@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import moment from 'moment';
 import '../styles/appointment.css';
-var apns = require("apns"), options, connection, notification;
+import fetch from 'isomorphic-fetch';
+import { polyfill } from 'es6-promise';
+polyfill();
 
 class Appointment extends React.Component {
 
@@ -12,19 +14,28 @@ class Appointment extends React.Component {
   }
 
   sendNotification() {
-    const options = {
-      keyFile : '../../aps_dev_key_decrypted.pem',
-      certFile : '../../config/aps_dev_cert.pem',
-      debug : true
-    };
+    fetch("/notify", {
+      method: "POST",
+      body: {
+        token: this.props.token,
+        date: this.props.date
+      }
+    })
+    // const options = {
+    //   keyFile : '../../aps_dev_key_decrypted.pem',
+    //   certFile : '../../config/aps_dev_cert.pem',
+    //   debug : true
+    // };
     
-    connection = new apns.Connection(options);
+    // connection = new apns.Connection(options);
     
-    notification = new apns.Notification();
-    notification.device = new apns.Device(this.props.token);
-    notification.alert = `Your CommuteCall is confirmed for ${this.props.date}`;
-    console.log(notification.device);
-    connection.sendNotification(notification);
+    // notification = new apns.Notification();
+    // notification.device = new apns.Device(this.props.token);
+    // notification.alert = `Your CommuteCall is confirmed for ${this.props.date}`;
+    // console.log(notification.device);
+    // connection.sendNotification(notification);
+
+    
   }
 
   confirm() {
