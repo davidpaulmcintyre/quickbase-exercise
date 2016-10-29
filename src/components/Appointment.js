@@ -16,31 +16,35 @@ class Appointment extends React.Component {
   sendNotification() {
     fetch("/notify", {
       method: "POST",
-      body: {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
         token: this.props.token,
-        date: this.props.date
-      }
+        date: this.props.date,
+        recordID: this.props.recordID,
+        inviteeFirst: this.props.inviteeFirst,
+        inviteeLast: this.props.inviteeLast
+      })
     })
-    // const options = {
-    //   keyFile : '../../aps_dev_key_decrypted.pem',
-    //   certFile : '../../config/aps_dev_cert.pem',
-    //   debug : true
-    // };
-    
-    // connection = new apns.Connection(options);
-    
-    // notification = new apns.Notification();
-    // notification.device = new apns.Device(this.props.token);
-    // notification.alert = `Your CommuteCall is confirmed for ${this.props.date}`;
-    // console.log(notification.device);
-    // connection.sendNotification(notification);
+    .then(function(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
+    }).then(function(response) {
+        console.log("ok");
+    }).catch(function(error) {
+        console.log(error);
+    });
 
-    
   }
 
   confirm() {
     this.sendNotification();
-
+    const url = `/confirmation?first=${this.props.first}&last=${this.props.last}&date=${this.props.location.query.date}`;
+    this.props.history.push(url);
   }
 
 
@@ -52,15 +56,14 @@ class Appointment extends React.Component {
         </div>
         <div className='summaryContainer'>
           <div className='summary'>Would you like to schedule a CommuteCall with
-            <span className='name'>{this.props.first} {this.props.last}</span>
+            <span className='name'>{this.props.first} {this.props.last} </span>
              at the following time?
              </div>
         </div>
         <div className='time'>{this.props.date}</div>
         <div className='confirm'>
           <div>Click the button below to confirm.</div>
-          <Link to={`/confirmation?first=${this.props.first}&last=${this.props.last}&date=${this.props.location.query.date}`}>
-          Confirm</Link>
+          <button onClick={this.confirm.bind(this)}>Confirm</button>
         </div>
       </div>
     );
@@ -74,13 +77,21 @@ Appointment.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  // sender
   const first = ownProps.location.query.first;
   const last = ownProps.location.query.last;
+  // invitee
+  const inviteeFirst = ownProps.location.query.inviteeFirst;
+  const inviteeLast = ownProps.location.query.inviteeLast;
+  const recordID = ownProps.location.query.recordID;
   const date = ownProps.location.query.date;
-  const token = ownProps.location.query.id;
+  const token = ownProps.location.query.token;
   return {
     first,
     last,
+    inviteeFirst,
+    inviteeLast,
+    recordID,
     date,
     token
   };

@@ -26,9 +26,15 @@ app.post('/notify', function(req, res){
 
   var apnProvider = new apn.Provider(options);
   var note = new apn.Notification();
-  note.badge = 3;
-  note.alert = 'CommuteCall request accepted';
+  note.badge = 1;
+  note.alert = `CommuteCall request accepted by ${body.inviteeFirst} ${body.inviteeLast}`;
   note.topic = "com.CommuteCall.reactnative";
+  note.notification = {
+    recordID: body.recordID,
+    inviteeFirst: body.inviteeFirst,
+    inviteeLast: body.inviteeLast,
+    date: body.date
+  };
   apnProvider.send(note, deviceToken).then( (result) => {
   });
 });
