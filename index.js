@@ -21,7 +21,7 @@ app.post('/notify', function(req, res){
             keyId: "N5H7C8MF7S",
             teamId: "YHLRFEMTF5",
         },
-        production: false,
+        production: true,
       };
 
   var apnProvider = new apn.Provider(options);
