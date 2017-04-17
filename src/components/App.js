@@ -4,8 +4,8 @@ const App = (props) => {
   return (
     <div>
       {props.children}
-      <div><a>What is CommuteCall?</a></div>
-      <div><a>Download CommuteCall from App Store</a></div>
+      <div className="what_is"><a>What is CommuteCall?</a></div>
+      <div className="download_link"><a>Download CommuteCall from App Store</a></div>
     </div>
   );
 };

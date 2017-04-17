@@ -52,10 +52,10 @@ class Appointment extends React.Component {
     return (
       <div>
         <div className='headerContainer'>
-          <div className='header'>CommuteCall</div>
+          <div className='header'>Commute Call</div>
         </div>
         <div className='summaryContainer'>
-          <div className='summary'>Would you like to schedule a CommuteCall with
+          <div className='summary'>Would you like to schedule a Commute Call with
             <span className='name'>{this.props.first} {this.props.last} </span>
              at the following time?
              </div>
