@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import '../styles/appointment.css';
+import '../styles/styles.css';
 
 const App = (props) => {
   return (
