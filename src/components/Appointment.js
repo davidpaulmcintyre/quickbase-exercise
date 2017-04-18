@@ -57,7 +57,7 @@ class Appointment extends React.Component {
         </div>
 
         <div className='summaryContainer'>
-            <div className='summary'>Please confirm you would like to schedule a Commute Call with:</div>
+            <div className='summary'>Please confirm your scheduled call with:</div>
         </div>
         <div className='nameContainer'>
             <div className='name'>{this.props.first} {this.props.last} </div>
