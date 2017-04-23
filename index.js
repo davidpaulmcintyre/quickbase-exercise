@@ -1,11 +1,46 @@
 var express = require('express');
 var app = express();
 var apn = require('apn');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var moment = require('moment');
+var fs = require('fs');
+var ICS = require('ics');
+var ical = new ICS();
+
 app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/dist'));
+
+app.get('/download', function(req, res){
+  var fname = req.query.first;
+  var lname = req.query.last;
+  var fullname = `${fname} ${lname}`;
+  var email = req.query.email;
+  var options = {
+    eventName: `CommuteCall \- ${fullname}`,
+    title: `CommuteCall \-  ${fullname}`,
+    description: `This is your scheduled call with ${fullname}.  Have fun connecting!`,
+    fileName: 'CommuteCall.ics',
+    start: req.query.start,
+    end: req.query.end,
+    organizer: {
+      name: fullname,
+      email: email
+    },
+    attendees: [
+      {
+        name: fullname,
+        email: email
+      },
+    ],
+  }
+
+  ical.createEvent(options, null, function(err, data) {
+    res.set({"Content-Disposition":"attachment; filename=\"CommuteCall.ics\""});
+    res.send(data);
+  })
+})
 
 app.get('/', function(req, res){
   res.sendfile('/dist/index.html');

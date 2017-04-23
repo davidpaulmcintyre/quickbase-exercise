@@ -1,17 +1,19 @@
 import React, { PropTypes } from 'react';
-// var imgDownload = require("../images/appstore.png"); match to name of img file you added
+import moment from 'moment';
 
 const App = (props) => {
+  const query = props.location.query;
+  const dateStart = moment();
+  const strEnd = dateStart.clone().add(1, 'hours').toISOString();
+  const strStart = dateStart.toISOString();
+  console.log('start ', strStart);
+  console.log('end ', strEnd);
+  const _uri = `/download?first=${query.first}&last=${query.last}&email=${query.email}&start=${strStart}&end=${strEnd}&phone=${query.phone}`
   return (
     <div>
       {props.children}
-      <div><a>What is CommuteCall?</a></div>
-      <div><a>Download CommuteCall from App Store</a></div>
-      {/* remove this to enable this img tag below
-        
-        <img src={imgDownload}/>
 
-      and remove this bracket here as well /*}
+      <a href={_uri} download={true}>Download appointment</a>
     </div>
   );
 };
