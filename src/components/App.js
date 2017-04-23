@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import '../styles/appointment.css';
+// var imgDownload = require("../images/appstore.png"); match to name of img file you added
 
 const App = (props) => {
   return (
