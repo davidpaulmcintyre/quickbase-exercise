@@ -120,11 +120,11 @@
   color: #fff;
   position: fixed;
   padding: 14px;
+  height: 30px;
 }
 
 .download_link {
   right: 16px;
-  height: 30px;
 }
 
 .what_is {
