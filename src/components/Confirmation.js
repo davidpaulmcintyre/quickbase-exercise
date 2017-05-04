@@ -9,14 +9,17 @@ class Confirmation extends React.Component {
     return (
       <div>
         <div className='headerContainer'>
-          <div className='header'>CommuteCall</div>
+          <div className='header'>Commute Call</div>
         </div>
+
         <div className='summaryContainer'>
-          <div className='summary'>Your CommuteCall appointment is all set!</div>
+          <div className='summary'>Thank you! Your appointment is all set.</div>
         </div>
-        <div className='confirm'>
-          <div className='name'>{this.props.first} {this.props.last}</div>
-          <div className='name'>{this.props.date}</div>
+        <div className='nameContainer'>
+            <div className='name'>{this.props.first} {this.props.last} </div>
+        </div>
+        <div className='nameContainer'>
+            <div className='name'>on {this.props.date}</div>
         </div>
       </div>
     );

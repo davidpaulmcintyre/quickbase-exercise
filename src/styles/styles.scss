@@ -5,11 +5,11 @@ $vin-red: #ff0000;
 
 /* Styles */
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 16px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
   color: #4d4d4d;
   min-width: 230px;
-  max-width: 550px;
+  max-width: 100%;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -24,3 +24,20 @@ td {
 h2 {
 	color: $vin-blue;
 }
+
+.lowerFooter {
+  background: #0228ff;
+  background: -moz-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #0228ff), color-stop(100%, #309cfa));
+  background: -webkit-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
+  background: -o-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
+  background: -ms-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
+  background: linear-gradient(135deg, #0228ff 0%, #309cfa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0228ff', endColorstr='#309cfa', GradientType=1 );
+  height: 50px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+

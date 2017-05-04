@@ -51,20 +51,26 @@ class Appointment extends React.Component {
   render() {
     return (
       <div>
+
         <div className='headerContainer'>
-          <div className='header'>CommuteCall</div>
+          <div className='header'>Commute Call</div>
         </div>
+
         <div className='summaryContainer'>
-          <div className='summary'>Would you like to schedule a CommuteCall with
-            <span className='name'>{this.props.first} {this.props.last} </span>
-             at the following time?
-             </div>
+            <div className='summary'>Please confirm your scheduled call with:</div>
         </div>
-        <div className='time'>{this.props.date}</div>
-        <div className='confirm'>
-          <div>Click the button below to confirm.</div>
-          <button onClick={this.confirm.bind(this)}>Confirm</button>
+        <div className='nameContainer'>
+            <div className='name'>{this.props.first} {this.props.last} </div>
         </div>
+        <div className='nameContainer'>
+            <div className='name'>on {this.props.date}</div>
+        </div>
+        <div className='confirmContainer'>
+            <div className='confirm'>
+              <button className='confirmButton' onClick={this.confirm.bind(this)}>Confirm</button>
+            </div>
+        </div>
+
       </div>
     );
   }
