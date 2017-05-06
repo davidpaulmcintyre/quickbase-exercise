@@ -1,6 +1,4 @@
 /* eslint-disable import/default */
-
-import React from 'react';
 import {render} from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';

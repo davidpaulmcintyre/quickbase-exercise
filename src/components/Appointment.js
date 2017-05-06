@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import moment from 'moment';
 import '../styles/appointment.css';
 import fetch from 'isomorphic-fetch';
 import { polyfill } from 'es6-promise';
@@ -33,11 +31,13 @@ class Appointment extends React.Component {
         }
         return response;
       })
-      .then(function(response) {
-        console.log('ok');
-      })
+      // .then(function(response) {
+      //   console.log('ok');
+      // })
       .catch(function(error) {
+        /* eslint-disable no-console */
         console.log(error);
+        /* eslint-enable no-console */
       });
   }
 
@@ -51,25 +51,25 @@ class Appointment extends React.Component {
     return (
       <div>
 
-        <div className="headerContainer">
-          <div className="header">Commute Call</div>
+        <div className='headerContainer'>
+          <div className='header'>{'Commute Call'}</div>
         </div>
 
-        <div className="summaryContainer">
-          <div className="summary">
-            Please confirm your scheduled call with:
+        <div className='summaryContainer'>
+          <div className='summary'>
+            {'Please confirm your scheduled call with:'}
           </div>
         </div>
-        <div className="nameContainer">
-          <div className="name">{this.props.first} {this.props.last} </div>
+        <div className='nameContainer'>
+          <div className='name'>{this.props.first} {this.props.last} </div>
         </div>
-        <div className="nameContainer">
-          <div className="name">on {this.props.date}</div>
+        <div className='nameContainer'>
+          <div className='name'>{'on '}{this.props.date}</div>
         </div>
-        <div className="confirmContainer">
-          <div className="confirm">
-            <button className="confirmButton" onClick={this.confirm.bind(this)}>
-              Confirm
+        <div className='confirmContainer'>
+          <div className='confirm'>
+            <button className='confirmButton' onClick={this.confirm.bind(this)}>
+              {'Confirm'}
             </button>
           </div>
         </div>
