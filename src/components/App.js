@@ -12,18 +12,18 @@ const App = props => {
   return (
     <div>
       {props.children}
-      <div className='lowerFooter'>
-        <span className='what_is'>
+      <div className="lowerFooter">
+        <span className="what_is">
           <a
-            className='what_is_link'
-            href='http://www.commutecall.co'
-            target='_blank'
+            className="what_is_link"
+            href="http://www.commutecall.co"
+            target="_blank"
           >
             {'What is Commute Call?'}
           </a>
         </span>
         <a href={_uri} download={true}>{'Download appointment'}</a>
-        <div><img className='download_link' src={imgDownload} /></div>
+        <div><img className="download_link" src={imgDownload} /></div>
       </div>
     </div>
   );
