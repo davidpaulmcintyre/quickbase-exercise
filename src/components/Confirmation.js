@@ -4,22 +4,21 @@ import moment from 'moment';
 import '../styles/appointment.css';
 
 class Confirmation extends React.Component {
-
   render() {
     return (
       <div>
-        <div className='headerContainer'>
-          <div className='header'>Commute Call</div>
+        <div className="headerContainer">
+          <div className="header">Commute Call</div>
         </div>
 
-        <div className='summaryContainer'>
-          <div className='summary'>Thank you! Your appointment is all set.</div>
+        <div className="summaryContainer">
+          <div className="summary">Thank you! Your appointment is all set.</div>
         </div>
-        <div className='nameContainer'>
-            <div className='name'>{this.props.first} {this.props.last} </div>
+        <div className="nameContainer">
+          <div className="name">{this.props.first} {this.props.last} </div>
         </div>
-        <div className='nameContainer'>
-            <div className='name'>on {this.props.date}</div>
+        <div className="nameContainer">
+          <div className="name">on {this.props.date}</div>
         </div>
       </div>
     );
@@ -30,7 +29,7 @@ Confirmation.defaultProps = {
   first: '',
   last: '',
   dateFormatted: ''
-}
+};
 
 const mapStateToProps = (state, ownProps) => {
   const first = ownProps.location.query.first;
@@ -43,4 +42,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Confirmation)
+export default connect(mapStateToProps)(Confirmation);

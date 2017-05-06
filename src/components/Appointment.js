@@ -8,16 +8,15 @@ import { polyfill } from 'es6-promise';
 polyfill();
 
 class Appointment extends React.Component {
-
   constructor(props, context) {
     super(props, context);
   }
 
   sendNotification() {
-    fetch("/notify", {
-      method: "POST",
+    fetch('/notify', {
+      method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -28,17 +27,18 @@ class Appointment extends React.Component {
         inviteeLast: this.props.inviteeLast
       })
     })
-    .then(function(response) {
+      .then(function(response) {
         if (!response.ok) {
-            throw Error(response.statusText);
+          throw Error(response.statusText);
         }
         return response;
-    }).then(function(response) {
-        console.log("ok");
-    }).catch(function(error) {
+      })
+      .then(function(response) {
+        console.log('ok');
+      })
+      .catch(function(error) {
         console.log(error);
-    });
-
+      });
   }
 
   confirm() {
@@ -47,28 +47,31 @@ class Appointment extends React.Component {
     this.props.history.push(url);
   }
 
-
   render() {
     return (
       <div>
 
-        <div className='headerContainer'>
-          <div className='header'>Commute Call</div>
+        <div className="headerContainer">
+          <div className="header">Commute Call</div>
         </div>
 
-        <div className='summaryContainer'>
-            <div className='summary'>Please confirm your scheduled call with:</div>
+        <div className="summaryContainer">
+          <div className="summary">
+            Please confirm your scheduled call with:
+          </div>
         </div>
-        <div className='nameContainer'>
-            <div className='name'>{this.props.first} {this.props.last} </div>
+        <div className="nameContainer">
+          <div className="name">{this.props.first} {this.props.last} </div>
         </div>
-        <div className='nameContainer'>
-            <div className='name'>on {this.props.date}</div>
+        <div className="nameContainer">
+          <div className="name">on {this.props.date}</div>
         </div>
-        <div className='confirmContainer'>
-            <div className='confirm'>
-              <button className='confirmButton' onClick={this.confirm.bind(this)}>Confirm</button>
-            </div>
+        <div className="confirmContainer">
+          <div className="confirm">
+            <button className="confirmButton" onClick={this.confirm.bind(this)}>
+              Confirm
+            </button>
+          </div>
         </div>
 
       </div>
@@ -80,7 +83,7 @@ Appointment.defaultProps = {
   first: '',
   last: '',
   dateFormatted: ''
-}
+};
 
 const mapStateToProps = (state, ownProps) => {
   // sender
@@ -102,4 +105,4 @@ const mapStateToProps = (state, ownProps) => {
     token
   };
 };
-export default connect(mapStateToProps, null)(Appointment)
+export default connect(mapStateToProps, null)(Appointment);

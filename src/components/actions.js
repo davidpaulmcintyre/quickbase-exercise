@@ -1,5 +1,5 @@
-const goTo = (id) => {
-  return function (dispatch) {
+const goTo = id => {
+  return function(dispatch) {
     return dispatch({
       type: 'CONFIRM',
       id
@@ -7,13 +7,11 @@ const goTo = (id) => {
       // settings
     });
   };
-}
+};
 
-const sendNotification = (date) => {
+const sendNotification = date => {
   const urlPushServer = 'api.development.push.apple.com:443';
   const prefix = 'YHLRFEMTF5';
   const id = 'com.commutecall.commutecall';
 };
-export {
-  goTo
-}
+export { goTo };
