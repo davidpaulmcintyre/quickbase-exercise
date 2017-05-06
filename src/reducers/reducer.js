@@ -1,11 +1,11 @@
-import initialState from './initialState';
+import initialState from "./initialState";
 
 export default function fuelSavingsReducer(
   state = initialState.fuelSavings,
   action
 ) {
   switch (action.type) {
-    case 'CONFIRM':
+    case "CONFIRM":
       return Object.assign({}, state, {});
     default:
       return state;

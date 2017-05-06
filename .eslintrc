@@ -40,7 +40,7 @@
     "no-extra-semi": 2,
     "jsx-quotes": [
       2,
-      "prefer-single"
+      "prefer-double"
     ],
     "react/jsx-boolean-value": [
       2,
@@ -63,10 +63,9 @@
     "space-before-function-paren": "off",
     "quotes": [
       2,
-      "single",
+      "double",
       "avoid-escape"
     ]
   },
-  "globals": {
-  }
+  "globals": {}
 }

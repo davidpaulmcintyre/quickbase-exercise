@@ -13,7 +13,7 @@
     "start-message": "babel-node tools/startMessage.js",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
-    "prettify": "prettier --single-quote --write {src,__{tests,mocks}__}/**/*.js",
+    "prettify": "prettier --write {src,__{tests,mocks}__}/**/*.js",
     "lint": "esw webpack.config.* src tools --color",
     "lint:watch": "npm run lint -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",

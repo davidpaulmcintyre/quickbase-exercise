@@ -1,7 +1,7 @@
 const goTo = id => {
   return function(dispatch) {
     return dispatch({
-      type: 'CONFIRM',
+      type: "CONFIRM",
       id
       // dateModified: dateHelper.getFormattedDateTime(),
       // settings

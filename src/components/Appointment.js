@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import '../styles/appointment.css';
-import fetch from 'isomorphic-fetch';
-import { polyfill } from 'es6-promise';
+import React from "react";
+import { connect } from "react-redux";
+import "../styles/appointment.css";
+import fetch from "isomorphic-fetch";
+import { polyfill } from "es6-promise";
 polyfill();
 
 class Appointment extends React.Component {
@@ -11,11 +11,11 @@ class Appointment extends React.Component {
   }
 
   sendNotification() {
-    fetch('/notify', {
-      method: 'POST',
+    fetch("/notify", {
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         token: this.props.token,
@@ -52,24 +52,24 @@ class Appointment extends React.Component {
       <div>
 
         <div className="headerContainer">
-          <div className="header">{'Commute Call'}</div>
+          <div className="header">{"Commute Call"}</div>
         </div>
 
         <div className="summaryContainer">
           <div className="summary">
-            {'Please confirm your scheduled call with:'}
+            {"Please confirm your scheduled call with:"}
           </div>
         </div>
         <div className="nameContainer">
           <div className="name">{this.props.first} {this.props.last} </div>
         </div>
         <div className="nameContainer">
-          <div className="name">{'on '}{this.props.date}</div>
+          <div className="name">{"on "}{this.props.date}</div>
         </div>
         <div className="confirmContainer">
           <div className="confirm">
             <button className="confirmButton" onClick={this.confirm.bind(this)}>
-              {'Confirm'}
+              {"Confirm"}
             </button>
           </div>
         </div>
@@ -80,9 +80,9 @@ class Appointment extends React.Component {
 }
 
 Appointment.defaultProps = {
-  first: '',
-  last: '',
-  dateFormatted: ''
+  first: "",
+  last: "",
+  dateFormatted: ""
 };
 
 const mapStateToProps = (state, ownProps) => {
