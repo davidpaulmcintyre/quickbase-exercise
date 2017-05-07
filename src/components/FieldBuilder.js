@@ -16,10 +16,14 @@ class FieldBuilder extends React.Component {
   }
 }
 
-FieldBuilder.defaultProps = {};
+FieldBuilder.defaultProps = {
+  fieldData: {}
+};
 
 const mapStateToProps = state => {
-  return state;
+  return {
+    fieldData: state.sales.region
+  };
 };
 
 const mapDispatchToProps = dispatch => {

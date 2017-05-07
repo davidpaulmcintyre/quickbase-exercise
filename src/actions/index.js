@@ -4,10 +4,16 @@ import * as mockData from '../store/mockData';
 
 const getSalesRegionFieldData = id => {
   return function(dispatch) {
-    return {
-      type: types.GET_SALES_REGION_FIELD_DATA,
-      data: mockData.default.getField()
-    };
+    // do something async here
+    const data = mockData.default.getField();
+    dispatch(receiveSalesRegionFieldData(data));
+  };
+};
+
+const receiveSalesRegionFieldData = data => {
+  return {
+    type: types.RECEIVE_SALES_REGION_FIELD_DATA,
+    data
   };
 };
 
