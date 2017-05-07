@@ -1,7 +1,7 @@
 {
-  "name": "commutecall_server",
+  "name": "quickbase-exercise",
   "version": "0.1.0",
-  "description": "server for handling scheduling of appointments",
+  "description": "coding exercise",
   "engines": {
     "node": "5.9.1"
   },
@@ -45,6 +45,7 @@
     "react-router": "2.7.0",
     "react-router-redux": "4.0.5",
     "redux": "3.5.2",
+    "redux-form": "6.6.3",
     "redux-thunk": "2.1.0"
   },
   "devDependencies": {

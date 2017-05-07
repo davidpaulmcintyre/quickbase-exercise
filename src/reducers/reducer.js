@@ -1,12 +1,11 @@
-import initialState from "./initialState";
+import initialState from './initialState';
+import * as types from '../constants/actionTypes';
 
-export default function fuelSavingsReducer(
-  state = initialState.fuelSavings,
-  action
-) {
+export default function salesRegionReducer(state = initialState, action) {
   switch (action.type) {
-    case "CONFIRM":
+    case types.GET_SALES_REGION_FIELD_DATA: {
       return Object.assign({}, state, {});
+    }
     default:
       return state;
   }

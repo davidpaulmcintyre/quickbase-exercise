@@ -1,13 +1,14 @@
-import { Route } from 'react-router';
+import React from 'react';
+import { IndexRoute, Route } from 'react-router';
 import App from './components/App';
-import Appointment from './components/Appointment';
-import Confirmation from './components/Confirmation';
-import NotFoundPage from './components/NotFoundPage.js';
+import DefaultComponent from './components/DefaultComponent';
+import FieldBuilder from './components/FieldBuilder';
+import NotFoundPage from './components/NotFoundPage';
 
 export default (
-  <Route path='/' component={App}>
-    <Route path='appointment' component={Appointment}/>
-    <Route path='confirmation' component={Confirmation}/>
-    <Route path='*' component={NotFoundPage}/>
+  <Route path="/" component={App}>
+    <IndexRoute component={DefaultComponent} />
+    <Route path="sales-region" component={FieldBuilder} />
+    <Route path="*" component={NotFoundPage} />
   </Route>
 );

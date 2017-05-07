@@ -1,11 +1,11 @@
 /* eslint-disable import/default */
-import {render} from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
 import routes from './routes';
 import configureStore from './store/configureStore';
-import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
-// import { syncHistoryWithStore } from 'react-router-redux';
+import './styles/styles.scss';
 
 const store = configureStore();
 
@@ -15,5 +15,6 @@ const store = configureStore();
 render(
   <Provider store={store}>
     <Router history={hashHistory} routes={routes} />
-  </Provider>, document.getElementById('app')
+  </Provider>,
+  document.getElementById('app')
 );

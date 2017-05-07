@@ -25,19 +25,4 @@ h2 {
 	color: $vin-blue;
 }
 
-.lowerFooter {
-  background: #0228ff;
-  background: -moz-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, #0228ff), color-stop(100%, #309cfa));
-  background: -webkit-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
-  background: -o-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
-  background: -ms-linear-gradient(-45deg, #0228ff 0%, #309cfa 100%);
-  background: linear-gradient(135deg, #0228ff 0%, #309cfa 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0228ff', endColorstr='#309cfa', GradientType=1 );
-  height: 50px;
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
-}
 
