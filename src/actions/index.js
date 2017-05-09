@@ -1,6 +1,8 @@
 // id is unused here, just return mock data
 import * as types from '../constants/actionTypes';
 import * as mockData from '../store/mockData';
+import fetch from 'isomorphic-fetch';
+const URI_POST = 'http://www.mocky.io/v2/566061f21200008e3aabd919';
 
 export const getSalesRegionFieldData = id => {
   return function(dispatch) {
@@ -11,9 +13,30 @@ export const getSalesRegionFieldData = id => {
 };
 
 export const saveSalesRegionFieldData = formData => {
-  return function(dispatch) {
+  return dispatch => {
     // write to log
     console.log(formData);
+    const body = JSON.stringify(formData);
+    fetch(URI_POST, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body
+    })
+      .then(function(response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .catch(function(error) {
+        /* eslint-disable no-console */
+        console.log(error);
+        /* eslint-enable no-console */
+      });
+
     dispatch(receiveSalesRegionFieldData(formData));
   };
 };
