@@ -43,8 +43,8 @@ const FieldBuilderForm = props => {
 
       <FieldArray
         name="choices"
-        label="Choices"
         component={EditableList}
+        label="Choices"
         validate={[validateItemLengths, validateArrayLength]}
       />
 

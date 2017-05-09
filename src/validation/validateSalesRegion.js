@@ -6,7 +6,7 @@ const maxLength = max => value =>
 export const maxLength50 = maxLength(50);
 
 export const validateItemLengths = items =>
-  items && items.some(item => item.length > 40)
+  items && items.some(item => item.choice.length > 40)
     ? 'Choices cannot be longer than 40 characters'
     : undefined;
 

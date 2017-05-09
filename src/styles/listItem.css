@@ -5,3 +5,13 @@
 button {
   display: inline-block;
 }
+
+.listItem input[type=text] {
+  width: 430px;
+}
+
+@media (max-width: 420px) {
+.listItem input[type=text] {
+  max-width: 300px;
+}
+}

@@ -34,6 +34,7 @@
 @media (max-width: 420px) {
   .listBox {
     width: 355px;
+    display: block;
   }
 
   .buttonGroup {

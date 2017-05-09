@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import '../styles/app.css';
 
 const DefaultComponent = () => {
   return (
-    <div>
+    <div className="home">
       <h4>
         {'Forms'}
       </h4>

@@ -1,40 +1,24 @@
 import React, { Component } from 'react';
-import { Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, formValueSelector } from 'redux-form';
+import Label from './Label';
 import '../../styles/listItem.css';
 
-const EditableListItem = props => {
-  let component = <div />;
-  if (props.show) {
-    component = (
-      <input
-        {...props.input}
-        type="text"
-        onChange={e => {
-          props.onChangeAction(props.input.value);
-          props.input.onChange(e);
-        }}
-      />
-    );
-  }
-  return component;
-};
+const selector = formValueSelector('salesRegion');
 
-/*const EditableListItem = obj => {
-  const field = obj.choice;
-  let component = <div />;
-  // if (field.input.canEdit) {
-  component = (
-    <input
-      {...field.input}
-      type="text"
-      onChange={e => {
-        field.onChangeAction(field.input.value);
-        field.input.onChange(e);
-      }}
-    />
-  );
-  return component;
-  // }
-};*/
+const ListItem = ({ choice, index, fields, canEdit }) => (
+  <li key={index} className="listItem">
+    <button title="delete" onClick={() => fields.remove(index)}>{'x'}</button>
+    <Field name={`${choice}.canEdit`} type="checkbox" component="input" />
+    {canEdit &&
+      <Field name={`${choice}.choice`} type="text" component="input" />}
+    {!canEdit &&
+      <Field name={`${choice}.choice`} type="text" component={Label} />}
+  </li>
+);
+
+const EditableListItem = connect((state, props) => ({
+  canEdit: !!selector(state, `${props.choice}.canEdit`)
+}))(ListItem);
 
 export default EditableListItem;
