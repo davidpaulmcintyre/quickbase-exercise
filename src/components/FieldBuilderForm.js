@@ -6,7 +6,8 @@ import EditableList from './formFields/EditableList';
 import {
   required,
   maxLength50,
-  validateItemLengths
+  validateItemLengths,
+  validateArrayLength
 } from '../validation/validateSalesRegion';
 import '../styles/fieldBuilderForm.css';
 
@@ -44,7 +45,7 @@ const FieldBuilderForm = props => {
         name="choices"
         label="Choices"
         component={EditableList}
-        validate={validateItemLengths}
+        validate={[validateItemLengths, validateArrayLength]}
       />
 
       <Field

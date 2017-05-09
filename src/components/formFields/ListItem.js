@@ -7,7 +7,7 @@ const ListItem = ({
   type,
   meta: { touched, error, warning }
 }) => {
-  const text = input.value;
+  const text = input.value.choice;
   const str1 = text.substr(0, 40);
   const str2 = text.substr(40, 50);
   return (

@@ -16,7 +16,7 @@ class FieldBuilderContainer extends React.Component {
   saveForm(formData) {
     // if list of choices doesnt include default, add it
     let choicesValidated = [];
-    const choices = formData.choices;
+    const choices = formData.choices.map(obj => obj.choice);
     const _default = formData.default;
     if (choices.indexOf(_default) < 0) {
       choicesValidated = choices.concat([_default]);
@@ -48,8 +48,14 @@ FieldBuilderContainer.defaultProps = {
 
 const mapStateToProps = state => {
   let data = state.sales.region;
+  let choices = data.choices ? data.choices : [];
+  const choicesAugmented = choices.map(choice => ({
+    choice: choice,
+    canEdit: false
+  }));
+
   return {
-    fieldData: data
+    fieldData: Object.assign({}, data, { choices: choicesAugmented })
   };
 };
 

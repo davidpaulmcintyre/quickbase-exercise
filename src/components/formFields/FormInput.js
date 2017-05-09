@@ -2,12 +2,13 @@ import React from 'react';
 import '../../styles/formInput.css';
 
 const FormInput = ({
+  className,
   input,
   label,
   type,
   meta: { touched, error, warning }
 }) => (
-  <div>
+  <div className={className}>
     <label className="formLabel">{label}</label>
     <div className="formInput">
       <input {...input} placeholder={label} type={type} />

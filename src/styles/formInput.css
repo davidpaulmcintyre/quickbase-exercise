@@ -13,6 +13,11 @@
   margin-left: 5px;
 }
 
+.cboxSmall {
+  width: 30px;
+  display: inline-block;
+}
+
 @media (max-width: 420px) {
 .formInput {
   display: block;
