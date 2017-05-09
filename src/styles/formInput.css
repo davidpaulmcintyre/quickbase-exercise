@@ -1,0 +1,20 @@
+.formLabel {
+  display: inline-block;
+  width: 150px;
+  margin-right: 5px;
+}
+
+.formInput {
+  display: inline-block;
+}
+
+.inputError {
+  color: red;
+  margin-left: 5px;
+}
+
+@media (max-width: 420px) {
+.formInput {
+  display: block;
+}
+}

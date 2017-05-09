@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import '../styles/fieldBuilder.css';
 
 const App = props => {
   return (

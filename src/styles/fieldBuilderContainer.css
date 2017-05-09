@@ -1,0 +1,14 @@
+.page {
+  
+}
+
+.container {
+  width: 850px;
+  height: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: black;
+  margin-left: 25px;
+}

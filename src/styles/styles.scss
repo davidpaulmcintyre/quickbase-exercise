@@ -3,26 +3,39 @@ $vin-blue: #5bb7db;
 $vin-green: #60b044;
 $vin-red: #ff0000;
 
-/* Styles */
 body {
-  font: 16px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body, input, button, select {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
   line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 100%;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: 300;
+  color: #333;
 }
 
-td {
-	padding: 12px;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-h2 {
-	color: $vin-blue;
+label {
+  display: inline-block;
 }
+
+@media (max-width: 420px) {
+  body, input, button, select, span {
+    font-size: 14px;
+    line-height: 1.2em;
+  }
+
+  label {
+    display: block;
+  }
+}
+
+
 
 
