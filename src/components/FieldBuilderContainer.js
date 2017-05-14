@@ -13,7 +13,7 @@ class FieldBuilderContainer extends React.Component {
     this.props.getSalesRegionFieldData(ID);
   }
 
-  saveForm(formData) {
+  saveForm = formData => {
     // if list of choices doesnt include default, add it
     let choicesValidated = [];
     const choices = formData.choices.map(obj => obj.choice);
@@ -25,7 +25,7 @@ class FieldBuilderContainer extends React.Component {
     }
     const data = Object.assign({}, formData, { choices: choicesValidated });
     this.props.saveSalesRegionFieldData(data);
-  }
+  };
 
   render() {
     return (
@@ -34,7 +34,7 @@ class FieldBuilderContainer extends React.Component {
           <h1>{'Field Builder'}</h1>
           <FieldBuilderForm
             initialValues={this.props.fieldData}
-            onSubmit={this.saveForm.bind(this)}
+            onSubmit={this.saveForm}
           />
         </div>
       </div>
