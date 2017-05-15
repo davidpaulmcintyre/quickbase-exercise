@@ -7,7 +7,7 @@ const URI_POST = 'http://www.mocky.io/v2/566061f21200008e3aabd919';
 export const getSalesRegionFieldData = id => {
   return function(dispatch) {
     // do something async here
-    const data = mockData.default.getField();
+    const data = mockData.default.getField(id);
     dispatch(receiveSalesRegionFieldData(data));
   };
 };
@@ -15,7 +15,9 @@ export const getSalesRegionFieldData = id => {
 export const saveSalesRegionFieldData = formData => {
   return dispatch => {
     // write to log
+    /* eslint-disable no-console */
     console.log(formData);
+    /* eslint-enable no-console */
     const body = JSON.stringify(formData);
     fetch(URI_POST, {
       method: 'POST',
@@ -44,13 +46,6 @@ export const saveSalesRegionFieldData = formData => {
 const receiveSalesRegionFieldData = data => {
   return {
     type: types.RECEIVE_SALES_REGION_FIELD_DATA,
-    data
-  };
-};
-
-export const receiveSaveResponse = data => {
-  return {
-    type: types.RECEIVE_SAVE_RESPONSE,
     data
   };
 };

@@ -10,5 +10,7 @@ app.get('/', function(req, res) {
 });
 
 app.listen(app.get('port'), function() {
+  /* eslint-disable no-console */
   console.log('Node app is running on port', app.get('port'));
+  /* eslint-enable no-console */
 });

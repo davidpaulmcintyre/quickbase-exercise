@@ -1,8 +1,7 @@
 uses react slingshot as starter template
 
 to build:
+npm install
 npm run build
 npm run start
-
-deploy to heroku
-git push heroku master
+navigate to http://localhost:8080

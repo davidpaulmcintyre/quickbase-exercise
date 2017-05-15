@@ -61,11 +61,7 @@
     "react/sort-comp": 2,
     "react/prop-types": 0,
     "space-before-function-paren": "off",
-    "quotes": [
-      2,
-      "double",
-      "avoid-escape"
-    ]
+    "quotes": "off"
   },
   "globals": {}
 }

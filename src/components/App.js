@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 const App = props => {
   return (
@@ -9,7 +9,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  children: PropTypes.element
+  children: React.PropTypes.element
 };
 
 export default App;

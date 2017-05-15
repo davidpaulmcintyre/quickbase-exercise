@@ -5,7 +5,9 @@ import '../../styles/editableList.css';
 
 const EditableList = ({ fields, label, meta: { touched, error } }) => (
   <div className="editableListContainer">
-    <label className="formLabel">{label}</label>
+    <label className="formLabel">
+      {label}
+    </label>
     {error && <span className="listError">{error}</span>}
     <ul className="listBox">
       <li>
